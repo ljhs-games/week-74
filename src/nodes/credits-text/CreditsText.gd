@@ -17,7 +17,7 @@ Kathan
 as
 Artist
 
-Agoldberg
+ApGoldberg
 as
 Programmer
 

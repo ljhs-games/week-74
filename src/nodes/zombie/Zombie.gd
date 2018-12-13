@@ -30,8 +30,9 @@ func _process(delta):
 		apply_impulse(Vector2(), Vector2((int(flip_h)*-2 + 1)*walk_impulse, 0))
 
 func _on_VisibilityNotifier2D_screen_exited():
-	get_node("/root/GameState").score += 1
-	queue_free()
+	if GameState.time_left > 0.5:
+		get_node("/root/GameState").score += 1
+		queue_free()
 
 func die():
 	$FadeTween.interpolate_property(self, "modulate:a", 1.0, 0.0, fade_time, Tween.TRANS_QUAD, Tween.EASE_IN)

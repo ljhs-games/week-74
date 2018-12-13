@@ -16,5 +16,6 @@ func _on_GameState_dead():
 	get_tree().change_scene("res://scenes/Dead.tscn")
 
 func _process(delta):
+	print(GameState.score)
 	GameState.time_left -= delta
 	value = GameState.time_left

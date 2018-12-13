@@ -4,7 +4,7 @@ signal dead
 signal game_over
 signal scored(new_score)
 
-const max_time = 30.0
+const max_time = 44.0
 
 var score = 0 setget _set_score
 var dead = false setget _set_dead

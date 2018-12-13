@@ -1,7 +1,7 @@
 extends Node2D
 
 const zombie_pack = preload("res://nodes/zombie/Zombie.tscn")
-const spawn_times = Vector2(1.5, 4.0)
+const spawn_times = Vector2(0.5, 2.0)
 
 var cur_spawn_time = spawn_times.y
 var spawn_counter = 0.0

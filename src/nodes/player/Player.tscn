@@ -31,7 +31,9 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Knife" type="Area2D" parent="." index="1"]
+[node name="Knife" type="Area2D" parent="." index="1" groups=[
+"player",
+]]
 
 position = Vector2( 350, 350 )
 input_pickable = true

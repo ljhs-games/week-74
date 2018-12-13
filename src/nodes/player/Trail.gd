@@ -2,7 +2,7 @@ extends Node2D
 
 export var color = Color()
 const thickness = 2.0
-const fade_time = 0.5
+const fade_time = 0.2
 
 var base_pos = Vector2()
 var target_pos = Vector2()

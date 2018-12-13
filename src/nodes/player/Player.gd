@@ -1,6 +1,6 @@
 extends Node2D
 
-const swipe_duration = 1.5
+const swipe_duration = 1.0
 const rot_duration = 0.5
 export var swipe_color = Color()
 
