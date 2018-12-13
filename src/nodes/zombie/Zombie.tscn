@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://nodes/zombie/Zombie.gd" type="Script" id=1]
+[ext_resource path="res://nodes/zombie/Zombie_Walking/Zombie_Walking1.png" type="Texture" id=2]
+[ext_resource path="res://nodes/zombie/Zombie_Walking/Zombie_Walking2.png" type="Texture" id=3]
+[ext_resource path="res://nodes/zombie/Zombie_Walking/Zombie_Walking3.png" type="Texture" id=4]
+[ext_resource path="res://nodes/zombie/Zombie_Walking/Zombie_Walking4.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 21.9965, 55.3971 )
+
+[node name="Zombie" type="RigidBody2D" groups=[
+"zombie",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 2
+mass = 1.0
+friction = 0.5
+bounce = 0.0
+gravity_scale = 5.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Applied Forces", "Linear", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 5, 5 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 5
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
+
+rect = Rect2( -10, -10, 20, 20 )
+
+[node name="FadeTween" type="Tween" parent="." index="3"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="PainTween" type="Tween" parent="." index="4"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+
+[connection signal="tween_completed" from="FadeTween" to="." method="_on_FadeTween_tween_completed"]
+
+[connection signal="tween_completed" from="PainTween" to="." method="_on_PainTween_tween_completed"]
+
+

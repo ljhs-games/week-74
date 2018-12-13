@@ -75,4 +75,8 @@ playback/speed = 1.0
 
 [connection signal="tween_completed" from="Trail/DimTween" to="Trail" method="_on_DimTween_tween_completed"]
 
+[connection signal="body_entered" from="Knife" to="." method="_on_Knife_body_entered"]
+
+[connection signal="tween_completed" from="SwipeTween" to="." method="_on_SwipeTween_tween_completed"]
+
 
