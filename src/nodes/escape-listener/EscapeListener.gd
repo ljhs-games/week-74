@@ -10,8 +10,10 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("leave"):
+		print("leaving")
 		set_process(true)
 	elif event.is_action_released("leave"):
+		print("stopping leaving")
 		set_process(false)
 		leave_counter = 0.0
 		modulate.a = 0.0

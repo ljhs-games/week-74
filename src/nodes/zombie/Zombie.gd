@@ -3,8 +3,8 @@ extends RigidBody2D
 
 export var flip_h = false setget _set_flip_h
 const walk_timer = Vector2(1.0, 3.0)
-const walk_impulse = 300.0
-const stab_impulse = 500.0
+const walk_impulse = 150.0
+const stab_impulse = 400.0
 const fade_time = 0.5
 const pain_times = Vector2(0.2, 0.2)
 const max_health = 3
@@ -30,7 +30,7 @@ func _process(delta):
 		apply_impulse(Vector2(), Vector2((int(flip_h)*-2 + 1)*walk_impulse, 0))
 
 func _on_VisibilityNotifier2D_screen_exited():
-	GameState.score += 1
+	get_node("/root/GameState").score += 1
 	queue_free()
 
 func die():
@@ -49,11 +49,11 @@ func stab(in_dir):
 		die()
 	else:
 		show_pain()
-	print("Stabbed: ", in_dir)
-	apply_impulse(Vector2(), Vector2(in_dir.x*stab_impulse, 0))
+	#apply_impulse(Vector2(), Vector2(in_dir.x*stab_impulse, 0))
+	apply_impulse(Vector2(), in_dir*stab_impulse)
 
 func _on_FadeTween_tween_completed(object, key):
-	GameState.score += max_health
+	get_node("/root/GameState").score += max_health
 	queue_free()
 
 func _on_PainTween_tween_completed(object, key):

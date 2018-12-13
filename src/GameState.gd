@@ -17,11 +17,10 @@ func _set_time_left(new_time_left):
 
 func _set_score(new_score):
 	score = new_score
-	print("scored: ", new_score)
+	#print("scored: ", new_score)
 	emit_signal("scored", new_score)
 
 func _set_dead(new_dead):
 	dead = new_dead
 	if new_dead == true:
-		print("dead!")
 		emit_signal("dead")

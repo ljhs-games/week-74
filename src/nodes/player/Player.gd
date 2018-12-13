@@ -28,7 +28,7 @@ func swipe(in_pos):
 	$RotationTween.start()
 
 func _on_Knife_body_entered(body):
-	if cutting and body.is_in_group("zombie"):
+	if body.is_in_group("zombie"):
 		body.stab((target_pos - $Knife.global_position).normalized())
 
 func _on_SwipeTween_tween_completed(object, key):

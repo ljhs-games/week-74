@@ -7,12 +7,23 @@ var start_counter = 0.0
 var credits = """
 creikey
 as
-Team Lead and Programmer
-
+Team Lead, Programmer Lead, Sound Lead
 
 Stving_artist
 as
 Lead Artist
+
+Kathan
+as
+Artist
+
+Agoldberg
+as
+Programmer
+
+Michael
+as
+Left the Club
 """
 
 func _ready():
